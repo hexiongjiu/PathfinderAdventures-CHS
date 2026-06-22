@@ -42,8 +42,9 @@ Mars 基于游侠网汉化 v2.7 修改 (2026.06.21)
 
 ## 原始汉化
 
-游侠网汉化 v2.7：[https://www.ali213.net/news/html/2017-11/331369.html](https://www.ali213.net/news/html/2017-11/331369.html)
+游侠网汉化 v2.7：[https://game.ali213.net/thread-6273163-1-1.html](https://game.ali213.net/thread-6273163-1-1.html)
 
 ## 声明
 
 本汉化仅供学习交流使用，请勿用于商业化用途。
+
