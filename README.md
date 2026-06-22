@@ -6,8 +6,11 @@
 
 1. 在 Steam 库中右键 Pathfinder Adventures → 管理 → 浏览本地文件
 2. 进入 `PathfinderAdventures_Data` 文件夹
- 3. 将本补丁中的三个文件复制进去覆盖：
+ 3. 将本补丁中的文件复制进去覆盖：
     - `resources.assets`
     - `sharedassets0.assets`
+    - `level1`
     - `level2`
+    - `level8`
+    - `level9`
 4. 启动游戏
