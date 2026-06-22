@@ -1,13 +1,29 @@
 ﻿# Pathfinder Adventures 中文汉化补丁
 
-基于游侠网汉化 v2.7 修改适配2018年2月28日最新 Steam 版本，同时把哥布林2的DLC也一起AI翻译了，凑合着用吧。
+基于游侠网汉化 v2.7 修改适配最新 Steam 版本，包含哥布林 DLC 汉化。
 
 ## 安装方法
 
 1. 在 Steam 库中右键 Pathfinder Adventures → 管理 → 浏览本地文件
 2. 进入 `PathfinderAdventures_Data` 文件夹
- 3. 将本补丁中的文件复制进去覆盖：
-    - `resources.assets`
-    - `sharedassets0.assets`
-    - `level2`
+3. 将本补丁中的文件复制进去覆盖：
+   - `resources.assets`
+   - `sharedassets0.assets`
+   - `level1`
+   - `level2`
+   - `level8`
+   - `level9`
 4. 启动游戏
+
+## 汉化内容
+
+- 188 个文本文件完整汉化（卡牌、地点、场景、UI、教程、规则）
+- 2034 张卡牌名称和描述全部翻译
+- 新增 DLC 内容翻译（涂鸦脸、长腿人的复仇、深入盐沼、旧沉船等）
+- 主菜单按钮汉化（开始/收藏/退出/设置）
+- 场景内 UI 标签汉化
+- 术语统一修正（恩赐/灾祸/地精/充能等）
+
+## 制作
+
+Mars 基于游侠网汉化 v2.7 修改 (2026.06.21)
