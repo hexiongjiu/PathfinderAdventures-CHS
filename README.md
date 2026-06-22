@@ -9,8 +9,5 @@
  3. 将本补丁中的文件复制进去覆盖：
     - `resources.assets`
     - `sharedassets0.assets`
-    - `level1`
     - `level2`
-    - `level8`
-    - `level9`
 4. 启动游戏
