@@ -16,7 +16,8 @@
 | Boon | 恩赐 | 统称所有对玩家有利的卡牌（武器、法术、盟友等） |
 | Henchman | 心腹 | 区别于普通怪物，击败他能触发关闭地点 |
 | Villain | 反派 | 关底Boss，通常需封锁地点来将其彻底围剿 |
-
+
+
 
 ## 安装方法
 
@@ -27,6 +28,7 @@
    - sharedassets0.assets
    - level1
    - level2
+   - level5
    - level8
    - level9
 4. 启动游戏
