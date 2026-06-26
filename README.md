@@ -37,7 +37,8 @@
    - level5
    - level8
    - level9
-4. 启动游戏
+4. 将 Assembly-CSharp.dll 复制到 PathfinderAdventures_Data\Managed\ 覆盖（战斗界面动词中文显示修复）
+5. 启动游戏
 
 ## 汉化内容
 
@@ -57,6 +58,13 @@
 ## 原始汉化
 
 游侠网汉化 v2.7：https://game.ali213.net/thread-6273163-1-1.html
+
+## 战斗界面动词修复（DLL 补丁）
+
+叠牌数惩罚等界面显示英文 Discard/Bury/Pile 的问题，通过修改 Assembly-CSharp.dll 解决：
+
+- **原理**：`GameStatePenalty`/`GameStateSacrifice`/`GameStatePickHand` 的 `GetHelpText` 方法将 `box ActionType` 替换为 `Extensions.ToText()`，利用枚举上已有的 `[StrRefAttr]` 特性查 UI 表获取中文文本
+- **文件**：`patcher/` 目录含 Mono.Cecil 补丁脚本与说明
 
 ## 声明
 
