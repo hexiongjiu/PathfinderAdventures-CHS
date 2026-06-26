@@ -23,9 +23,17 @@ print("读取 CSV...")
 updates = {}
 with open(CSV, 'r', encoding='utf-8-sig') as f:
     for row in csv.reader(f):
-        if len(row) < 5 or row[0] == 'File': continue
+        if len(row) < 4 or row[0] == 'File': continue
         file_name, eid = row[0], row[1]
-        chs = row[4] if len(row) > 4 else ''
+        
+        # 支持两种格式：
+        # 5列: File,EntryID,Name,English,Chinese
+        # 4列: File,EntryID,English,Chinese
+        if len(row) >= 5:
+            chs = row[4]
+        else:
+            chs = row[3]
+        
         if not chs.strip(): continue
         chs = chs.replace('\\\\n', '\n').replace('\\n', '\n')
         updates.setdefault(file_name, {})[eid] = chs
@@ -64,6 +72,9 @@ for obj in env.objects:
     s = data.m_Script
     if isinstance(s, bytes): s = s.decode('utf-8', 'replace')
     if 'StringTableFile' not in s: continue
+    
+    # 修复：将自闭合的 <DefaultText /> 替换，防止正则跨 Entry 匹配
+    s = s.replace('<DefaultText />', '<DefaultText></DefaultText>')
     
     file_updates = updates[name]
     state = [False, 0]
