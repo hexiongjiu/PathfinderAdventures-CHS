@@ -31,7 +31,6 @@
 2. 进入 PathfinderAdventures_Data 文件夹
 3. 将本补丁中的文件复制进去覆盖：
    - resources.assets
-   - sharedassets0.assets
    - level1
    - level2
    - level5
@@ -67,7 +66,7 @@
 - **技能面板**：STR/DEX/CON/INT/WIS/CHA → 力量/敏捷/体质/智力/智慧/魅力
 - **技能名**：Melee/Ranged/Arcane 等显示为中文
 - **卡牌来源区**：pile/hand/discard 等显示为中文（牌堆/手牌/弃牌堆）
-- **对话框标题栏人名**：仍为英文，DLL 层面暂无法修复
+- **对话框标题栏人名**：仍为英文（与立绘加载共用路径，暂无法分离）
 
 ## 声明
 
