@@ -1,0 +1,22 @@
+name: GitHub Stats Bot
+
+# 设置触发时间
+on:
+  schedule:
+    # 每天北京时间晚上 8 点（UTC 12:00）自动运行
+    - cron: '0 12 * * *'
+  # 允许你在网页上点击按钮手动立即触发测试
+  workflow_dispatch: 
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Fetch and Save GitHub Stats
+        uses: jasonetco/github-stats-action@v2
+        env:
+          # 这里会自动读取你在第二步锁进去的密码
+          TOKEN: ${{ secrets.GH_TOKEN }} 
