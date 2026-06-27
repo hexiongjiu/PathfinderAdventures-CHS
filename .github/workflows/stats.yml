@@ -1,21 +1,24 @@
 name: GitHub Stats Bot
 
 on:
-  # 只要你保存了这个文件，脚本就会立刻被揪起来执行一次！
   push:
-    branches: [ master ] 
+    branches: [ master ] # 当你保存时立刻触发一次测试
   schedule:
-    - cron: '0 12 * * *'
-  workflow_dispatch: 
+    - cron: '0 12 * * *'  # 每天北京时间晚上 8 点自动运行
+  workflow_dispatch:      # 允许手动按钮触发
 
 jobs:
   update-stats:
     runs-on: ubuntu-latest
     steps:
+      # 1. 检查和读取代码
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # 2. 核心插件：抓取数据并自动生成表格和漂亮图表
       - name: Fetch and Save GitHub Stats
-        uses: jasonetco/github-stats-action@v2
-        env:
-          TOKEN: ${{ secrets.GH_TOKEN }}
+        uses: jgehrcke/github-repo-stats@v1.4.3
+        with:
+          # 使用你在前面步骤里配置好的 GH_TOKEN 密码
+          repository: ${{ github.repository }}
+          ghtoken: ${{ secrets.GH_TOKEN }}
