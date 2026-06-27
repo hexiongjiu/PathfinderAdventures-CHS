@@ -7,7 +7,6 @@ on:
     - cron: '0 12 * * *'  # 每天北京时间晚上 8 点自动运行
   workflow_dispatch:      # 允许手动点击按钮触发
 
-# 赋予脚本自动创建 gh-pages 分支和发布网页的权限
 permissions:
   contents: write
   pages: write
@@ -21,8 +20,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fetch and Save GitHub Stats
-        # 这里改成了官方标准推荐的 @v1 动态版本
-        uses: jgehrcke/github-repo-stats@v1
+        # 彻底修正：这里明确锁定到作者发布过的最新版本 v1.4.2
+        uses: jgehrcke/github-repo-stats@v1.4.2
         with:
           repository: ${{ github.repository }}
           ghtoken: ${{ secrets.GH_TOKEN }}
