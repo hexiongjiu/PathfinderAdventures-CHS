@@ -59,12 +59,20 @@
 
 游侠网汉化 v2.7：https://game.ali213.net/thread-6273163-1-1.html
 
-## 战斗界面动词修复（DLL 补丁）
+## DLL 补丁说明
 
-叠牌数惩罚等界面显示英文 Discard/Bury/Pile 的问题，通过修改 Assembly-CSharp.dll 解决：
+`Assembly-CSharp.dll` 含以下修复：
 
-- **原理**：`GameStatePenalty`/`GameStateSacrifice`/`GameStatePickHand` 的 `GetHelpText` 方法将 `box ActionType` 替换为 `Extensions.ToText()`，利用枚举上已有的 `[StrRefAttr]` 特性查 UI 表获取中文文本
-- **文件**：`patcher/` 目录含 Mono.Cecil 补丁脚本与说明
+| 修复项 | 方法 | 
+|--------|------|
+| 战斗界面动词英→中 | ActionType/DeckType 的 `ToText()` 替换 |
+| 技能面板属性缩写 | `GuiSkillLine.GetAttributeText` STR→力量 等 |
+| 技能名查表 | `SkillType` 枚举补 `[StrRefAttr]` |
+| 卡牌来源区名 | `DeckType` 枚举补 `[StrRefAttr]`（Pile→牌堆 等）|
+
+**原理**：游戏使用 `Extensions.ToText(Enum)` + `[StrRefAttr]` 特性查 UI 表获取中文。但部分代码直接 `box`+`string.Format` 或硬编码英文，需手动修正。
+
+**脚本**：`patcher/` 目录含 Mono.Cecil Python 补丁脚本。运行需 `pip install pythonnet` + Mono.Cecil.dll。
 
 ## 声明
 
