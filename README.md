@@ -59,20 +59,15 @@
 
 游侠网汉化 v2.7：https://game.ali213.net/thread-6273163-1-1.html
 
-## DLL 补丁说明
+## DLL 补丁
 
-`Assembly-CSharp.dll` 含以下修复：
+`Assembly-CSharp.dll` 修复了以下英文残留：
 
-| 修复项 | 方法 | 
-|--------|------|
-| 战斗界面动词英→中 | ActionType/DeckType 的 `ToText()` 替换 |
-| 技能面板属性缩写 | `GuiSkillLine.GetAttributeText` STR→力量 等 |
-| 技能名查表 | `SkillType` 枚举补 `[StrRefAttr]` |
-| 卡牌来源区名 | `DeckType` 枚举补 `[StrRefAttr]`（Pile→牌堆 等）|
-
-**原理**：游戏使用 `Extensions.ToText(Enum)` + `[StrRefAttr]` 特性查 UI 表获取中文。但部分代码直接 `box`+`string.Format` 或硬编码英文，需手动修正。
-
-**脚本**：`patcher/` 目录含 Mono.Cecil Python 补丁脚本。运行需 `pip install pythonnet` + Mono.Cecil.dll。
+- **战斗界面动词**：Discard/Bury/Pile/Recharge 等显示为中文
+- **技能面板**：STR/DEX/CON/INT/WIS/CHA → 力量/敏捷/体质/智力/智慧/魅力
+- **技能名**：Melee/Ranged/Arcane 等显示为中文
+- **卡牌来源区**：pile/hand/discard 等显示为中文（牌堆/手牌/弃牌堆）
+- **对话框标题栏人名**：仍为英文，DLL 层面暂无法修复
 
 ## 声明
 
