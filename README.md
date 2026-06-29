@@ -1,6 +1,6 @@
 ﻿> 已经是比较稳定版本了
 
-## 如果报错，那就只替换esources.assets，卡牌内容都翻译了，就一些UI没翻译
+## 如果报错，那就只替换resources.assets，卡牌内容都翻译了，就一些UI没翻译
 
 # Pathfinder Adventures 中文汉化补丁
 
