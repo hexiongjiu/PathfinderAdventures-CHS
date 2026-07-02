@@ -1,0 +1,6 @@
+tree e96855cf238b97dc2f0cb29bc10958bd24b306a0
+parent 8a2ed9754835f5041d8e3ef487f042fa71be0baf
+author hexiongjiu <hexiongjiu@163.com> 1782970191 +0800
+committer hexiongjiu <hexiongjiu@163.com> 1782970191 +0800
+
+level5: Manage Runes/Decks/Party fix (\\n not space)
