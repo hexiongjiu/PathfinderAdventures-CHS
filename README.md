@@ -1,12 +1,6 @@
-﻿> 已经是比较稳定版本了
-
-## 如果报错，那就只替换resources.assets，卡牌内容都翻译了，就一些UI没翻译
-
-# Pathfinder Adventures 中文汉化补丁
+﻿# Pathfinder Adventures 中文汉化补丁
 
 基于游侠网汉化 v2.7 修改适配最新 Steam 版本，包含哥布林 DLC 汉化。
-虽然是基于游侠网的补丁做，但原来的汉化错误超多，而且哥布林2 DLC也没有翻译。
-一边玩，一边发现不对的地方去改。最后，错误实在太多了，用Agent逐条对照改，基本上现在错误是比较少了。
 
 
 ## 术语对照表（举例）
@@ -38,13 +32,9 @@
 1. 在 Steam 库中右键 Pathfinder Adventures → 管理 → 浏览本地文件
 2. 进入 PathfinderAdventures_Data 文件夹
 3. 将本补丁中的文件复制进去覆盖：
-   - resources.assets（如果报错，可只覆盖这个）
-   - level1
-   - level2
-   - level5
-   - level8
-   - level9
-4. 将 Assembly-CSharp.dll 复制到 PathfinderAdventures_Data\Managed\ 覆盖（战斗界面动词中文显示修复，可不覆盖）
+   - resources.assets
+   - level1 ~ level14
+4. 将 Assembly-CSharp.dll 复制到 PathfinderAdventures_Data\Managed\ 覆盖
 5. 启动游戏
 
 ## 汉化内容
@@ -63,10 +53,13 @@
 `Assembly-CSharp.dll` 修复了以下英文残留：
 
 - **战斗界面动词**：Discard/Bury/Pile/Recharge 等显示为中文
-- **技能面板**：STR/DEX/CON/INT/WIS/CHA → 力量/敏捷/体质/智力/智慧/魅力
-- **技能名**：Melee/Ranged/Arcane 等显示为中文
-- **卡牌来源区**：pile/hand/discard 等显示为中文（牌堆/手牌/弃牌堆）
-- **对话框标题栏人名**：仍为英文（与立绘加载共用路径，暂无法分离）
+- **技能面板属性名**：STR/DEX/CON/INT/WIS/CHA → 力量/敏捷/体质/智力/智慧/魅力
+- **技能名**：Melee/Ranged/Arcane 等显示为中文（通过 SkillType StrRefAttr）
+- **卡牌来源区**：Pile/Hand/Discard/Banish 等显示为中文（牌堆/手牌/弃牌堆/放逐区）
+- **探索操作动词**：Banish/Shuffle/Acquire/Destroy 等显示为中文（DispositionType StrRefAttr）
+- **Stash 计数器**：Stash 10/10 → 存 放 10/10
+- **Skip 按钮**：Skip → 跳 过
+- **卡牌限制文本**：修复 {0}{1}{2} 占位符直接显示的问题
 
 ## 声明
 
