@@ -1,9 +1,30 @@
 ﻿# Pathfinder Adventures 中文汉化补丁
 
-基于游侠网汉化 v2.7 修改适配最新 Steam 版本，包含哥布林 DLC 汉化。
+基于游侠网汉化 v2.7 深度修订，适配最新 Steam 版（含哥布林 DLC）。
+
+> 不仅是简单的文本替换——原版大量界面元素因引擎限制无法通过资源文件翻译，本补丁通过 DLL 注入技术逐一攻克，力求无中文死角。
+
+## 截图
+
+![技能名全翻译](技能名全翻译.png)
+
+![对话框人名翻译](对话框人名翻译.png)
+
+![Stash 细节翻译](stash之前细节翻译.png)
 
 
-## 术语对照表（举例）
+## 相比游侠汉化的改进
+
+- **术语统一修正**：人物→角色、灾祸→祸害、经营→精英、装填→回库、显示→亮出、智慧→感知
+- **错译修正 1600+ 条**：dumb dog→蠢狗（非装哑巴）、downfall→覆灭（非黄昏）、slaves→奴隶（非努力）
+- **漏译补全**：关键信息如 "this woman"、"down"、"I'll do it" 等
+- **DLL 注入汉化**：攻克游侠版残留的大量英文界面（详见下方）
+- **对话框人名**：93 个角色/NPC 名字实时翻译为中文
+- **CJK 字符间距统一**：中英混排视觉更整洁
+- 人名地名保持原样
+- 保留全角空格排版格式
+
+## 术语对照表
 
 | 原文 | 汉化 | 机制本质 |
 |------|------|---------|
@@ -18,50 +39,47 @@
 | Reveal | 亮出 | 展示给其他玩家看后收回手牌 |
 | Trait | 特性 | 卡牌属性标签（如 Book trait = 书籍特性） |
 
-
-- 使用AI 辅助校对：逐条对比中英文，修正 1600+ 条目
-  - 术语统一：人物→角色、灾祸→祸害、经营→精英、装填→回库、显示→亮出
-  - 漏译补全：关键信息如 "this woman"、"down"、"I'll do it" 等
-  - 错译修正：dumb dog→蠢狗（非装哑巴）、downfall→覆灭（非黄昏）、slaves→奴隶（非努力）
-  - 人名地名保持原样不修改
-  - 保留全角空格排版格式
-
-
 ## 安装方法
 
 1. 在 Steam 库中右键 Pathfinder Adventures → 管理 → 浏览本地文件
-2. 进入 PathfinderAdventures_Data 文件夹
+2. 进入 `PathfinderAdventures_Data` 文件夹
 3. 将本补丁中的文件复制进去覆盖：
-   - resources.assets
-   - level1 ~ level14
-4. 将 Assembly-CSharp.dll 复制到 PathfinderAdventures_Data\Managed\ 覆盖
+   - `resources.assets`
+   - `level1` ~ `level14`
+4. 将 `Assembly-CSharp.dll` 复制到 `PathfinderAdventures_Data\Managed\` 覆盖
 5. 启动游戏
 
-## 汉化内容
+> 若 Steam 云同步或验证完整性覆盖了文件，重新复制一次即可。
 
-- 绝大多数卡牌、地点、场景、UI、教程、规则的文本汉化
-- 所有卡牌名称和描述全部翻译
-- 新增 哥布林 DLC 内容翻译
-- 术语统一修正（恩赐/灾祸/地精/回库等）
+## DLL 补丁详细
+
+`Assembly-CSharp.dll` 通过 IL 注入修复了以下英文残留（这些文本在游戏资源文件中不存在，只能改代码）：
+
+| 位置 | 补丁内容 |
+|------|---------|
+| 战斗界面动词 | Discard / Bury / Pile / Recharge → 弃牌 / 埋葬 / 牌堆 / 回库 |
+| 技能面板属性 | STR / DEX / CON / INT / WIS / CHA → 力量 / 敏捷 / 体质 / 智力 / 感知 / 魅力 |
+| 技能类型名 | Melee / Ranged / Arcane / Divine 等 → 近战 / 远程 / 奥术 / 神圣 等 |
+| 卡牌来源区 | Pile / Hand / Discard / Banish 等 → 牌堆 / 手牌 / 弃牌堆 / 放逐区 |
+| 探索操作 | Banish / Shuffle / Acquire / Destroy 等 → 放逐 / 洗牌 / 获取 / 销毁 |
+| 对话人名 | 标题栏自动显示中文角色名（93 个角色 / NPC） |
+| Stash 计数器 | `Stash 10/10` → `存 放 10/10` |
+| Skip 按钮 | `Skip` → `跳 过` |
+| 卡牌限制文本 | 修复 `{0}{1}{2}` 占位符直接显示的问题 |
+
+## 汉化范围
+
+- 全部卡牌名称和描述
+- 地点、场景、UI、教程、规则文本
+- 哥布林 DLC 内容
+- 战斗界面所有操作动词和区域名
+- 技能面板属性名和技能类型名
+- 对话人名（实时动态翻译）
 
 ## 原始汉化
 
 游侠网汉化 v2.7：https://game.ali213.net/thread-6273163-1-1.html
 
-## DLL 补丁
-
-`Assembly-CSharp.dll` 修复了以下英文残留：
-
-- **战斗界面动词**：Discard/Bury/Pile/Recharge 等显示为中文
-- **技能面板属性名**：STR/DEX/CON/INT/WIS/CHA → 力量/敏捷/体质/智力/智慧/魅力
-- **技能名**：Melee/Ranged/Arcane 等显示为中文（通过 SkillType StrRefAttr）
-- **卡牌来源区**：Pile/Hand/Discard/Banish 等显示为中文（牌堆/手牌/弃牌堆/放逐区）
-- **探索操作动词**：Banish/Shuffle/Acquire/Destroy 等显示为中文（DispositionType StrRefAttr）
-- **Stash 计数器**：Stash 10/10 → 存 放 10/10
-- **Skip 按钮**：Skip → 跳 过
-- **卡牌限制文本**：修复 {0}{1}{2} 占位符直接显示的问题
-
 ## 声明
 
 本汉化仅供学习交流使用，请勿用于商业化用途。
-
