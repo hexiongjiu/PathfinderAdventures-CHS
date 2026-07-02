@@ -20,8 +20,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fetch and Save GitHub Stats
-        # 彻底修正：这里明确锁定到作者发布过的最新版本 v1.4.2
         uses: jgehrcke/github-repo-stats@v1.4.2
         with:
           repository: ${{ github.repository }}
           ghtoken: ${{ secrets.GH_TOKEN }}
+          include_raw_data: "false"
+          savedatadir: .
